@@ -3,7 +3,7 @@ spring:
     name: simplebank
 
   datasource:
-    url: jdbc:mysql://localhost:3306/InMap
+    url: jdbc:mysql://localhost:3306/simplebank
     username: SA
     password: A1b@Cd3#
     driver-class-name: com.mysql.cj.jdbc.Driver
