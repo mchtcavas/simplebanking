@@ -1,0 +1,13 @@
+version: '3.8'
+name: simplebank
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: A1b@Cd3#
+      MYSQL_DATABASE: simplebank
+      MYSQL_USER: SA
+      MYSQL_PASSWORD: A1b@Cd3#
+    ports:
+      - "3306:3306"
