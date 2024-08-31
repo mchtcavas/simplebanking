@@ -1,20 +1,14 @@
-package com.mchtcavas.simplebank.domain;
-
-import jakarta.persistence.*;
+package com.mchtcavas.simplebank.dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-public class BankAccount {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class BankAccountDto {
     private Long id;
     private String owner;
     private String accountNumber;
     private double balance;
-    @OneToMany(mappedBy = "bankAccount", cascade = CascadeType.ALL)
-    private List<Transaction> transactions = new ArrayList<>();
+    private List<TransactionDto> transactionDtoList = new ArrayList<>();
     private String mail;
 
     public Long getId() {
@@ -49,12 +43,12 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
+    public List<TransactionDto> getTransactionDtoList() {
+        return transactionDtoList;
     }
 
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
+    public void setTransactionDtoList(List<TransactionDto> transactionDtoList) {
+        this.transactionDtoList = transactionDtoList;
     }
 
     public String getMail() {
@@ -67,12 +61,12 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return "BankAccount{" +
+        return "BankAccountDto{" +
                 "id=" + id +
                 ", owner='" + owner + '\'' +
-                ", accountNumber=" + accountNumber +
+                ", accountNumber='" + accountNumber + '\'' +
                 ", balance=" + balance +
-                ", transactions=" + transactions +
+                ", transactionDtoList=" + transactionDtoList +
                 ", mail='" + mail + '\'' +
                 '}';
     }

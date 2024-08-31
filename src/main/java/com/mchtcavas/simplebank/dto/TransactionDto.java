@@ -1,22 +1,17 @@
-package com.mchtcavas.simplebank.domain;
+package com.mchtcavas.simplebank.dto;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.mchtcavas.simplebank.domain.TransactionType;
 
 import java.time.LocalDateTime;
 
-@Entity
-public class Transaction {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class TransactionDto {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id;
     private LocalDateTime date;
     private double amount;
-    @ManyToOne
-    @JoinColumn(name = "bank_account_id")
-    private BankAccount bankAccount;
-    private String approvalCode;
-    @Enumerated(EnumType.STRING)
     private TransactionType type;
+    private String approvalCode;
 
     public Long getId() {
         return id;
@@ -42,12 +37,12 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public BankAccount getBankAccount() {
-        return bankAccount;
+    public TransactionType getType() {
+        return type;
     }
 
-    public void setBankAccount(BankAccount bankAccount) {
-        this.bankAccount = bankAccount;
+    public void setType(TransactionType type) {
+        this.type = type;
     }
 
     public String getApprovalCode() {
@@ -58,23 +53,14 @@ public class Transaction {
         this.approvalCode = approvalCode;
     }
 
-    public TransactionType getType() {
-        return type;
-    }
-
-    public void setType(TransactionType type) {
-        this.type = type;
-    }
-
     @Override
     public String toString() {
-        return "Transaction{" +
+        return "TransactionDto{" +
                 "id=" + id +
                 ", date=" + date +
                 ", amount=" + amount +
-                ", bankAccount=" + bankAccount +
-                ", approvalCode='" + approvalCode + '\'' +
                 ", type=" + type +
+                ", approvalCode='" + approvalCode + '\'' +
                 '}';
     }
 }
