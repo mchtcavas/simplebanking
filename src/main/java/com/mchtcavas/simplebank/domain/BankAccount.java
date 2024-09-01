@@ -13,7 +13,7 @@ public class BankAccount {
     private String owner;
     private String accountNumber;
     private double balance;
-    @OneToMany(mappedBy = "bankAccount", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "bankAccount", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactions = new ArrayList<>();
     private String mail;
 
@@ -72,7 +72,7 @@ public class BankAccount {
                 ", owner='" + owner + '\'' +
                 ", accountNumber=" + accountNumber +
                 ", balance=" + balance +
-                ", transactions=" + transactions +
+                ", transactions=" + new ArrayList<>() +
                 ", mail='" + mail + '\'' +
                 '}';
     }

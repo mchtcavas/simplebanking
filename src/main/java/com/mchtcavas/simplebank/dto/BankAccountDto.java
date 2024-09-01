@@ -1,9 +1,12 @@
 package com.mchtcavas.simplebank.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccountDto {
+    @JsonIgnore
     private Long id;
     private String owner;
     private String accountNumber;
@@ -66,7 +69,7 @@ public class BankAccountDto {
                 ", owner='" + owner + '\'' +
                 ", accountNumber='" + accountNumber + '\'' +
                 ", balance=" + balance +
-                ", transactionDtoList=" + transactionDtoList +
+                ", transactionDtoList=" + new ArrayList<>() +
                 ", mail='" + mail + '\'' +
                 '}';
     }

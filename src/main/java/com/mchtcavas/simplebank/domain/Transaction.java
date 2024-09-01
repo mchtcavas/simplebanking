@@ -11,7 +11,7 @@ public class Transaction {
     private Long id;
     private LocalDateTime date;
     private double amount;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bank_account_id")
     private BankAccount bankAccount;
     private String approvalCode;

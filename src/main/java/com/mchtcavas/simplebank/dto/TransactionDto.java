@@ -1,12 +1,12 @@
 package com.mchtcavas.simplebank.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mchtcavas.simplebank.domain.TransactionType;
 
 import java.time.LocalDateTime;
 
 public class TransactionDto {
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnore
     private Long id;
     private LocalDateTime date;
     private double amount;

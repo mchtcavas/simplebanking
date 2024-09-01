@@ -22,3 +22,10 @@ logging:
   level:
     com.mchtcavas.simplebank: DEBUG
     root: INFO
+
+application:
+  bill-payment:
+    operators:
+      - turkcell
+      - vodafone
+      - turktelekom

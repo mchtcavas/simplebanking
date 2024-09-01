@@ -28,6 +28,13 @@ public class BankAccountManagementImpl implements BankAccountManagement {
     public BankAccountDto create(String owner, String mail) {
         log.debug("Entering create method with owner={} and mail={}", owner, mail);
 
+        Optional<BankAccount> optionalBankAccount = this.bankAccountRepository.findBankAccountByMail(mail);
+
+        if (optionalBankAccount.isPresent()) {
+            log.error("Account already exists for mail={}", mail);
+            throw new BusinessException(BusinessExceptionKey.ACCOUNT_ALREADY_EXISTS);
+        }
+
         BankAccount bankAccount = new BankAccount();
         bankAccount.setOwner(owner);
         bankAccount.setMail(mail);

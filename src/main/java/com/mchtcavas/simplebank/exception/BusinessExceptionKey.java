@@ -2,11 +2,12 @@ package com.mchtcavas.simplebank.exception;
 
 public enum BusinessExceptionKey {
     ACCOUNT_NOT_FOUND("The specified account was not found."),
-    INSUFFICIENT_FUNDS("The account has insufficient funds for the transaction."),
     ACCOUNT_ALREADY_EXISTS("An account with the given details already exists."),
-    ACCOUNT_LIMIT_EXCEEDED("The transaction exceeds the allowed limit."),
-    TRANSACTION_FAILED("The transaction could not be completed due to an error."),
-    INVALID_TRANSACTION_AMOUNT("The transaction amount is invalid (e.g., negative or zero).");
+    INSUFFICIENT_FUNDS("The account has insufficient funds for the transaction."),
+    INVALID_TRANSACTION_AMOUNT("The transaction amount is invalid (e.g., negative or zero)."),
+    INVALID_OPERATOR_NAME("The specified operator name is invalid or unrecognized."),
+    INVALID_PHONE_NUMBER("The specified phone number is invalid or does not meet the required format."),
+    VALIDATION_CHAIN_NOT_INITIALIZED("Validation chain is not initialized.");
     private final String defaultMessage;
 
     BusinessExceptionKey(String defaultMessage) {
