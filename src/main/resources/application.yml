@@ -23,6 +23,12 @@ logging:
     com.mchtcavas.simplebank: DEBUG
     root: INFO
 
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
 application:
   bill-payment:
     operators:
